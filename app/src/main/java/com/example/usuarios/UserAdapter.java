@@ -41,11 +41,9 @@ public class UserAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
                     .inflate(android.R.layout.simple_list_item_2, parent, false);
-
             holder = new ViewHolder();
             holder.t1 = convertView.findViewById(android.R.id.text1);
             holder.t2 = convertView.findViewById(android.R.id.text2);
-
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -53,7 +51,7 @@ public class UserAdapter extends BaseAdapter {
 
         User u = lista.get(i);
         holder.t1.setText(u.getName());
-        holder.t2.setText(u.getEmail());
+        holder.t2.setText(u.getEmail() + " | " + u.getCity() + " | " + u.getCompany());
 
         return convertView;
     }
